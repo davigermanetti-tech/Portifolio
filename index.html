@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portifólio | Davi Germanetti</title>
+</head>
+
+<body>
+
+    <div class="particulas"></div>
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#Inicio" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#Projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#Contato" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="Inicio" class="cabecalho">
+        <img src="./img/Davi.png" alt="Foto de Davi Germanetti" class="foto-perfil">
+        <h1>Davi Germanetti</h1>
+        <p class="cabecalho-sub-titulo">Desenvolvedor Full-Stack Júnior</p>
+    </main>
+
+    <Section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">Olá! Meu nome é Davi Germanetti, tenho 20 anos e sou um desenvolvedor Full-Stack
+                apaixonado por tecnologia e inovação. Desde jovem, sempre tive interesse em computadores e programação,
+                o que me levou a seguir uma carreira na área de Engenharia de Computação. O que sempre me motivou desde
+                que comecei nessa área, é como a tecnologia consegue resolver problemas e melhorar a vida das pessoas.
+            </p>
+            <p class="sobre-paragrafo">Atualmente, estou cursando Engenharia de Computação, onde tenho aprimorado minhas
+                habilidades em diversas linguagens de programação e frameworks. Tenho experiência com HTML, CSS,
+                JavaScript, Python e C entre outras tecnologias como APIs, IAs, Banco de dados etc.</p>
+            <p class="sobre-paragrafo">Sou uma pessoa dedicada, proativa e sempre em busca de novos desafios. Acredito
+                que a tecnologia tem o poder de transformar vidas e estou comprometido em contribuir para esse avanço
+                através do meu trabalho como Analista e desenvolvedor.</p>
+        </div>
+    </Section>
+
+    <section id="Projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <img src="./img/TaskManagerCapa.png" alt="Imagem do Projeto 1" class="projeto-imagem">
+                <h3 class="projetos-nome">Projeto 1: Organizador de Tarefas</h3>
+                <p class="projetos-descricao">Um site para organização, delegação e gerenciamento de tarefas diárias.</p>
+                <a href="https://github.com/davigermanetti-tech/TaskManager/blob/main/README.md" class="projeto-link">Ver Projeto</a>
+            </div>
+            <div class="projetos-card">
+                <img src="./img/tarefas.png" alt="Imagem do Projeto 2" class="projetos-imagem">
+                <h3 class="projetos-nome">Projeto 2: Aplicativo de Tarefas</h3>
+                <p class="projetos-descricao">Um aplicativo web para gerenciamento de tarefas, com funcionalidades de
+                    adicionar, editar e excluir tarefas.</p>
+                <a href="#" class="projetos-link">Ver Projeto</a>
+            </div>
+        </div>
+
+        <section id="Contato" class="contato">
+            <h2 class="contato-titulo">Entre em Contato</h2>
+            <form class="contato-formulario" id="formulario">
+                <div class="nome-form">
+                    <input type="text" id="nome" placeholder="Nome" class="campo-form">
+                </div>
+                <div class="grupo-form">
+                    <textarea id="mensagem" class="text-form" placeholder="Digite Sua Mensagem"></textarea>
+                </div>
+
+                <button type="button" class="btn-whatsapp" onclick="enviarWhatsApp()">
+                    Enviar mensagem no WhatsApp
+                </button>
+            </form>
+        </section>
+
+        <footer class="rodape">
+            <div class="redes-sociais">
+                <a href="https://www.linkedin.com/in/davi-germanetti-a222592b6/" target="_blank" class="rede-link">
+                    <img src="./img/linkedin.png" alt="Ícone do LinkedIn" class="rede-icone">
+                    <span>LinkedIn</span>
+                </a>
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=davigermanettimesquita@gmail.com" target="_blank"
+                    class="rede-link">
+                    <img src="./img/email.png" alt="Ícone de E-mail" class="rede-icone">
+                    <span>E-mail</span>
+                </a>
+            </div>
+            <p class="direitos">&copy; 2026 Davi Germanetti. Todos os direitos reservados.</p>
+        </footer>
+
+        <script>
+            function enviarWhatsApp() {
+                // Pega o que o usuário digitou nos campos
+                const nome = document.getElementById('nome').value;
+                const mensagem = document.getElementById('mensagem').value;
+                const numeroWhatsApp = "5511960395565";
+
+                // Verifica se o usuário preencheu a mensagem
+                if (mensagem.trim() === "") {
+                    alert("Por favor, digite uma mensagem antes de enviar.");
+                    return;
+                }
+
+                // Monta o texto que vai chegar no WhatsApp, incluindo o nome do usuário e a mensagem
+                const texto = `Olá Davi, meu nome é ${nome}.\n\n${mensagem}`;
+
+                // Codifica o texto para o formato de URL (substitui espaços por %20, etc)
+                const textoCodificado = encodeURIComponent(texto);
+
+                // Cria o link da API do WhatsApp e abre em uma nova aba
+                const url = `https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`;
+                window.open(url, '_blank');
+            }
+        </script>
+
+</body>
+
+</html>
